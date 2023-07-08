@@ -1,0 +1,19 @@
+.App {
+  background-color: #373647;
+  min-height: 100vh;
+  font-size: calc(20px);
+  color: white;
+}
+
+.header{
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.body{
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

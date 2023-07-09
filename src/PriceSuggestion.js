@@ -2,10 +2,8 @@ import React from 'react';
 
 const PriceSuggestion = (props) => {
 
-    const id = props.id;
-    // const currency = props.currency;
-
-    const [currency, setCurrency] = React.useState('');
+    const condition = props.condition;
+    const currency = props.currency;
     const value = props.value;
 
     const currencySymbols = {
@@ -14,11 +12,11 @@ const PriceSuggestion = (props) => {
             'EUR': '€',
     }
 
-    const currencySymbol = currencySymbols[props.currency];
+    const currencySymbol = currencySymbols[currency];
 
     return(
         <li>
-            <span>{currencySymbol}</span>
+            <span>{currencySymbol}</span> 
             <span>{value}</span>
         </li>
     )

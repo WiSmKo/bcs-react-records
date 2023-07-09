@@ -4,21 +4,31 @@ import './styles/results.css';
 
 const Results = (props) => {
 
-    let id = 0;
+    const currency = props.currency;
 
-    const resolveId = (num) => {
-        const currentId = num;
-        id = currentId + 1;
-        return currentId;
+    const currencySymbols = {
+        'GBP': '£',
+        'USD': '$',
+        'EUR': '€',
     }
 
+    const currencySymbol = (currencyCode) => {
+        return currencySymbols[currencyCode];
+    }
+
+    const roundValue = (value) => {
+        return Math.round((value + Number.EPSILON) * 100) / 100
+    }
 
     return(
-        <ul>
-            {props.priceSuggestions.map((priceSuggestion) => (
-                <PriceSuggestion id={resolveId(id)} currency={priceSuggestion.currency} value={priceSuggestion.value} />
+        <div class='container'>
+            {props.priceSuggestions.map(([condition, { currency, value }]) => (
+                <div key={condition} class='item'>
+                    <h3>{condition}</h3>
+                    <p>{currencySymbol(currency)} {roundValue(value)}</p>
+                </div>
             ))}
-        </ul>
+        </div>
         
     )
 }

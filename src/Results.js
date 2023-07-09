@@ -21,9 +21,9 @@ const Results = (props) => {
     }
 
     return(
-        <div class='container'>
+        <div className='container'>
             {props.priceSuggestions.map(([condition, { currency, value }]) => (
-                <div key={condition} class='item'>
+                <div key={condition} className='item'>
                     <h3>{condition}</h3>
                     <p>{currencySymbol(currency)} {roundValue(value)}</p>
                 </div>

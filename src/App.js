@@ -14,13 +14,7 @@ const App = () => {
   }
 
   const loadResults = (results) => {
-    
     setPriceSuggestions(Object.entries(results));
-    console.log("Load Results Method");
-    console.log(results);
-    console.log(Object.entries(results));
-    console.log({priceSuggestions});
-    console.log("--------------------");
   }
 
   return (

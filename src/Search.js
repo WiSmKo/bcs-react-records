@@ -4,22 +4,20 @@ import './styles/search.css'
 
 const Search = (props) => {
 
-    // const [suggestions, setSuggestions] = useState([]);
+    let server = process.env.REACT_APP_BACKEND_URL;
 
     const handleSearch = () => {
         const fetchData = async () => {
-            console.log(props.searchTerm);
             try {
                 const { data } = await axios.get(
-                    'http://localhost:3000/discogs-client/', {
+                    server+'/discogs-client/', {
                     params: {
                         discogsId: props.searchTerm}
                     }
                 );
 
                 props.loadResults(data);
-                console.log("Request completed");
-                console.log(data);
+
             } catch(error) {
                 console.log(error)
             }
